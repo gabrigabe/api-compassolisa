@@ -1,12 +1,16 @@
 class ErrorFormater {
   async format(error) {
-    const formatError = error.details.map((details) => ({
-      description: details.context.label,
-      name: details.message,
+    try {
+      const formatError = error.details.map((details) => ({
+        description: details.context.label,
+        name: details.message,
 
-    }));
+      }));
 
-    return formatError;
+      return formatError;
+    } catch (err) {
+      return { Error: 'Server Error' };
+    }
   }
 }
 
