@@ -1,13 +1,33 @@
-const Repository = require('../repositories/Repository');
+const CarsRepository = require('../repositories/CarsRepository');
 
 class CarsService {
   async create(data) {
     try {
-      const car = await Repository.create(data);
+      const car = await CarsRepository.create(data);
       return car;
     } catch (e) {
       return e;
     }
+  }
+
+  async findAll() {
+    const getAll = await CarsRepository.findAll();
+    return getAll;
+  }
+
+  async findById(id) {
+    const getById = await CarsRepository.findById(id);
+    return getById;
+  }
+
+  async update(data, id) {
+    const update = await CarsRepository.update(id, data);
+    return update;
+  }
+
+  async remove(id) {
+    const removeId = await CarsRepository.remove(id);
+    return removeId;
   }
 }
 

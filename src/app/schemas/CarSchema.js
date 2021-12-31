@@ -18,6 +18,7 @@ const CarsSchema = mongoose.Schema({
   acessorios: [{
     descricao: {
       type: String,
+      min: 1,
       required: true,
     },
   },
