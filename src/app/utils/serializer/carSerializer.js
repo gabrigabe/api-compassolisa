@@ -17,7 +17,7 @@ class CarSerializer {
       veiculos: docs,
       total: data.totalDocs,
       limit: data.limit,
-      offset: data.offset + 1,
+      offset: data.page,
       offsets: data.totalPages,
     };
   }

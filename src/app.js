@@ -1,6 +1,6 @@
 const express = require('express');
 const router = require('./routes');
-const error = require('./middlewares/errorMidleware');
+const error = require('./app/middlewares/errorMidleware');
 require('./infra/db/mongo');
 
 class App {

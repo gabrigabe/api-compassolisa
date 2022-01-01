@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const NotFound = require('../app/errors/NotFound');
+const NotFound = require('../errors/NotFound');
 
 const errorHandler = async (error, req, res, next) => {
   if (error instanceof NotFound) {

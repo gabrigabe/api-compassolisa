@@ -1,5 +1,5 @@
 const carsController = require('../app/controllers/CarsController');
-const errorHandler = require('../middlewares/errorMidleware');
+const errorHandler = require('../app/middlewares/errorMidleware');
 const { carValidations, idValidation } = require('../app/validations');
 
 module.exports = (server, routes, prefix = '/api/v1') => {

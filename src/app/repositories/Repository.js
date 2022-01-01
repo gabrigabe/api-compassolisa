@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 const schemas = require('../schemas');
 
 class Repository {
@@ -11,7 +12,8 @@ class Repository {
   }
 
   async findAll(query) {
-    const getAll = await schemas[this.schema].paginate(query);
+    const { page = 1, limit = 100 } = query;
+    const getAll = await schemas[this.schema].paginate(query, { page, limit });
     return getAll;
   }
 
