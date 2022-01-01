@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 class CarSerializer {
-  async serializeCar(data) {
+  serializeAllCars(data) {
     const docs = data.docs.map((doc) => {
       const formatedDocs = ({
         _id: doc._id,
@@ -20,6 +20,18 @@ class CarSerializer {
       offset: data.offset + 1,
       offsets: data.totalPages,
     };
+  }
+
+  serializeACar(data) {
+    const formatedCar = {
+      _id: data._id,
+      modelo: data.modelo,
+      cor: data.cor,
+      ano: data.ano,
+      acessorios: data.acessorios,
+      quantidadePassageiros: data.quantidadePassageiros,
+    };
+    return formatedCar;
   }
 }
 
