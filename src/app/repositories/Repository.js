@@ -10,8 +10,8 @@ class Repository {
     return create;
   }
 
-  async findAll() {
-    const getAll = await schemas[this.schema].find();
+  async findAll(query) {
+    const getAll = await schemas[this.schema].paginate(query);
     return getAll;
   }
 

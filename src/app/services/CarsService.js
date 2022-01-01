@@ -10,8 +10,8 @@ class CarsService {
     }
   }
 
-  async findAll() {
-    const getAll = await CarsRepository.findAll();
+  async findAll(query) {
+    const getAll = await CarsRepository.findAll(query);
     return getAll;
   }
 

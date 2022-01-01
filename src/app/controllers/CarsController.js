@@ -1,4 +1,5 @@
 const CarsService = require('../services/CarsService');
+const CarSerializer = require('../serializer/carSerializer');
 
 class CarsController {
   async create(req, res) {
@@ -7,8 +8,8 @@ class CarsController {
   }
 
   async get(req, res) {
-    const get = await CarsService.findAll();
-    return res.status(200).json(get);
+    const get = await CarsService.findAll(req.query);
+    return res.status(200).json(await CarSerializer.serializeCar(get));
   }
 
   async getById(req, res) {
