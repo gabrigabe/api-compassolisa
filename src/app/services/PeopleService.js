@@ -1,5 +1,5 @@
 const NotFound = require('../errors/NotFound');
-const PeopleRepository = require('../repositories/CarsRepository');
+const PeopleRepository = require('../repositories/PeopleRespository');
 
 class PeopleService {
   async create(data) {

@@ -28,7 +28,7 @@ class CarsController {
   async update(req, res, next) {
     try {
       await CarsService.update(req.params.id, req.body);
-      return res.status(200).end();
+      return res.status(204).end();
     } catch (error) {
       return next(error);
     }
@@ -37,7 +37,7 @@ class CarsController {
   async delete(req, res, next) {
     try {
       await CarsService.remove(req.params.id);
-      return res.status(200).end();
+      return res.status(204).end();
     } catch (error) {
       return next(error);
     }

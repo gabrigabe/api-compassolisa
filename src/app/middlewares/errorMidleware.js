@@ -2,10 +2,11 @@
 const NotFound = require('../errors/NotFound');
 
 const errorHandler = async (error, req, res, next) => {
+  let status = 500;
   if (error instanceof NotFound) {
-    return res.status(404).json(error);
+    status = 404;
   }
-  return res.status(500).json({ description: 'Internal Server Error', name: 'Something went wrong' });
+  return res.status(status).json(error);
 };
 
 module.exports = errorHandler;
