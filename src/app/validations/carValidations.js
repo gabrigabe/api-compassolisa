@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const errorFormater = require('../utils/errorFormater');
+const formater = require('../utils/errorFormater');
 
 module.exports = async (req, res, next) => {
   try {
@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
     }
     return next();
   } catch (error) {
-    const errorFormated = await errorFormater.format(error);
+    const errorFormated = await formater(error);
     return res.status(400).json(errorFormated);
   }
 };

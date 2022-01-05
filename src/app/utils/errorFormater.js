@@ -1,13 +1,11 @@
-class ErrorFormater {
-  async format(error) {
-    const formatError = error.details.map((details) => ({
-      description: details.context.label,
-      name: details.message,
+const formater = async (error) => {
+  const formatError = error.details.map((details) => ({
+    description: details.context.label,
+    name: details.message,
 
-    }));
+  }));
 
-    return formatError;
-  }
-}
+  return formatError;
+};
 
-module.exports = new ErrorFormater();
+module.exports = formater;
