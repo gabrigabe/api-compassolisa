@@ -1,19 +1,19 @@
 const NotFound = require('../errors/NotFound');
-const CarsRepository = require('../repositories/CarsRepository');
+const PeopleRepository = require('../repositories/PeopleRespository');
 
-class CarsService {
+class PeopleService {
   async create(data) {
-    const car = await CarsRepository.create(data);
+    const car = await PeopleRepository.create(data);
     return car;
   }
 
   async findAll(query) {
-    const getAll = await CarsRepository.findAll(query);
+    const getAll = await PeopleRepository.findAll(query);
     return getAll;
   }
 
   async findById(id) {
-    const getById = await CarsRepository.findById(id);
+    const getById = await PeopleRepository.findById(id);
     if (!getById) {
       throw new NotFound('id');
     }
@@ -21,7 +21,7 @@ class CarsService {
   }
 
   async update(data, id) {
-    const update = await CarsRepository.update(id, data);
+    const update = await PeopleRepository.update(id, data);
     if (!update) {
       throw new NotFound('id');
     }
@@ -29,7 +29,7 @@ class CarsService {
   }
 
   async remove(id) {
-    const removeId = await CarsRepository.remove(id);
+    const removeId = await PeopleRepository.remove(id);
     if (!removeId) {
       throw new NotFound('id');
     }
@@ -37,4 +37,4 @@ class CarsService {
   }
 }
 
-module.exports = new CarsService();
+module.exports = new PeopleService();
