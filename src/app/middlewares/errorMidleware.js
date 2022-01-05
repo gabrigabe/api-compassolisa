@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
 const { ValidationError } = require('joi');
-const NotFound = require('../errors/NotFound');
+const { NotFound, InvalidAuth } = require('../errors');
 const formater = require('../utils/errorFormater');
 
 const errorHandler = async (error, req, res, next) => {
@@ -12,6 +12,9 @@ const errorHandler = async (error, req, res, next) => {
   if (error instanceof ValidationError) {
     error = await formater(error);
     status = 400;
+  }
+  if (error instanceof InvalidAuth) {
+    status = 401;
   }
   return res.status(status).json(error);
 };
